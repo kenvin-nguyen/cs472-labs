@@ -1,0 +1,29 @@
+body{
+	background-color: darkgray;
+	color: #ffffff;
+	font-family: Arial, Arial Black, Verdana, Trebuchet MS,Georgia, Tahoma, Courier New, Times New Roman;
+}
+
+h1, h2{
+	color: #89DEEA;
+}
+
+table{
+	text-align: center;
+}
+
+a{
+	color: red;
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+}
+p::first-letter{
+	font-size: 150%;
+	font-weight: bold;
+}
+em{
+	color: yellow;
+}
+
