@@ -78,7 +78,6 @@ h1{
 	width: 250px;
 	background-color: #A2B964;
 	font-family: Arial;
-	font-size: 8pt;
 }
 
 dl{
@@ -106,7 +105,7 @@ dl dd ul{
 
 .validate{
 	opacity: 0.5;
-	position: absolute;
-	right: 0px;
-	
+	position: fixed;
+	right: 0;
+	bottom: 0;
 }
