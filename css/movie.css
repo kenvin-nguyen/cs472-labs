@@ -33,7 +33,7 @@ h1{
 	margin-right: auto;
 	overflow: hidden;
 }
-.left-content{
+#left-content{
 	float: left;
 	width: 550px;
 	column-count: 2;
@@ -75,7 +75,7 @@ h1{
 	
 }
 
-.right-content{
+#right-content{
 	float: right;
 	width: 250px;
 	background-color: #A2B964;
@@ -110,4 +110,5 @@ dl dd ul{
 	opacity: 0.5;
 	position: absolute;
 	right: 0px;
+	
 }
