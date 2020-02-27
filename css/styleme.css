@@ -35,3 +35,8 @@ dt{
 	background-color: black;
 	text-align: left;
 }
+
+ol{
+	display: flex;
+    flex-direction: column-reverse;
+}
