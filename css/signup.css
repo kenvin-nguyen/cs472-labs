@@ -1,0 +1,39 @@
+.logo{
+	width: 300px;
+	display: inline-block;
+	color: #808080;
+	font-family: Arial;
+	
+}
+span{
+	color: blue;
+}
+form{
+	display: flex;
+}
+
+fieldset{
+	display: inline-block;
+	background-color: #e0e0ff;
+	border: none;
+	border-radius: 10px;
+	border: 2px outset gray;
+}
+legend{
+	border: 2px outset gray;
+	background-color: white;
+}	
+label{
+	display: inline-block;
+	width: 120px;
+	font-weight: bold;
+}
+a{
+	text-decoration: none;
+	color: red;
+}
+#button{
+	background-color: #ffaaaa;
+	font-size: 18px;
+	font-weight: bold;
+}
