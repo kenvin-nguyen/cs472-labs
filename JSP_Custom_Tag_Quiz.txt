@@ -43,4 +43,4 @@ JSP Custom Tags Quiz
 	- Print out the value of customtag attributes.
 
 8. What does the operation getJspBody().invoke(null) do when called in a doTag() method?
-
+	- When getJspBody().invoke(null) is called, it is the output resulting from the execution of the tag body's JSP content that gets passed to the client, not the JSP code itself.

@@ -1,40 +1,113 @@
-JSP Introduction Quiz
- 
-1. What is the main value of Java Server Pages?  
-Separate display from processing, i.e., separate html from java.
+ JSP Introduction Quiz
+1. What is the main value of Java Server Pages?
+- separate display from processing, i.e., separate html from java
 
-2. How are JSP pages related to servlets? 
-The web container generates a servlet from a JSP file the first time the JSP is requested from a web application.
+2. How are JSP pages related to servlets?
+- A JSP life cycle can be defined as the entire process from its creation till its destruction, similar to the servlet life cycle with an additional step of compiling a JSP into servlet.
+- JSP are translated to Servlets when the page is accessed for the first time
 
-3. How are JSP pages related to HTML?  
-Jsp is html with a little java mixed in.
+3. How are JSP pages related to HTML?
+- JSP is a technology that allows you to write dynamic HTTP response with static data mixed with dynamic data with special tags.
+- JSP is a html based code.
 
 4. Give an example of a JSP scriptlet and show how it will look in the JSP servlet.
-<html>  
-<body>  
-<% out.print("welcome to jsp"); %>  
-</body>  
-</html> 
+- JSP scriplet:
+    <% sum = a + b; %>
+- JSP servlet:
+    public void _jspService(javax.servlet.http.HttpServletRequest request,
+                        javax.servlet.http.HttpServletResponse response)
+                throws javax.servlet.ServletException,
+                        java.io.IOException {
+        …
+        int sum = a + b;
+        …
+    }
 
-5. Give an example of a JSP declaration and show how it will look in the JSP servlet. 
-<%! int count = 0; %>
+5. Give an example of a JSP declaration and show how it will look in the JSP servlet.
+- JSP scriplet:
+    <%! int sum = 0; %>
+- JSP servlet:
+    int sum = 0;
+    
+    public void _jspService(javax.servlet.http.HttpServletRequest request,
+                        javax.servlet.http.HttpServletResponse response)
+                throws javax.servlet.ServletException,
+                        java.io.IOException {
+        …
+        sum = a + b;
+    }
 
-6. Give an example of a JSP comment and show how it will look in the JSP servlet.  
-<%-- jsp comment  --%>
+6. Give an example of a JSP comment and show how it will look in the JSP servlet.
+- JSP scriplet:
+	<%-- Calculate sum of two numbers --%>
+- JSP servlet:
+	public void _jspService(javax.servlet.http.HttpServletRequest request,
+                        javax.servlet.http.HttpServletResponse response)
+                 throws javax.servlet.ServletException,
+                        java.io.IOException {
+		PrintWrite out = response.getWrite();
+        out.println("");
+	}
+7. Give an example of a JSP expression and show how it will look in the JSP servlet.
+- JSP scriplet:
+	<%= a + b %>
+- JSP servlet:
+	public void _jspService(javax.servlet.http.HttpServletRequest request,
+                        javax.servlet.http.HttpServletResponse response)
+                 throws javax.servlet.ServletException,
+                        java.io.IOException {
+		…
+		PrintWrite out = response.getWrite();
+		out.println(a + b)
+	}
 
-7. Give an example of a JSP expression and show how it will look in the JSP servlet.  
-<%= Java expression %>
-8. Give an example of a JSP directive and show how it will look in the JSP servlet.  
-<%@ page   %>
+8. Give an example of a JSP directive and show how it will look in the JSP servlet.
+- JSP scriplet:
+	<%@ page import=”java.util.Date”%>
+- JSP servlet:
+    	import java.util.Date;
 
-9. Explain how an EL expression is evaluated. 
-	- More convenient and powerful than a JSP expression ${  } vs <%=  %>
+	public void _jspService(javax.servlet.http.HttpServletRequest request,
+                        javax.servlet.http.HttpServletResponse response)
+                 throws javax.servlet.ServletException,
+                        java.io.IOException {
+		…
+		PrintWrite out = response.getWrite();
+		out.println(a + b)
+	}
 
-10. Explain how servlet attributes are involved in EL expressions. 
-JSP expression: 
-	<%=((Person) request.getAttribute(“person”)).getDog().getName() %>
-EL simplifies JSP expression syntax 
-	${person.dog.name} 
+9. Explain how an EL expression is evaluated.
+${something}
+- EL expression is evaluated as follows:
+	- checks page scope for an attribute named "something" -> if found use it
+	- otherwise check request scope for an attribute named "something" -> if found use it
+	- otherwise check session scope for an attribute named "something" -> if found use it
+	- otherwise check application scope for an attribute named "something" -> if found use it
+	- otherwise ignore the expression
+
+10. Explain how servlet attributes are involved in EL expressions.
+${firstThing}
+	- if firstThing is not an implicit EL object, then search page,
+	request, session and application scopes until attribute
+	"firstThing" is found
+	${firstThing.secondThing}
+		- if firstThing is a bean then secondThing is a property of the bean
+		- if firstThing is a map then secondThing is a key of the map
+	${firstThing[secondThing]}
+		- if firstThing is a bean then secondThing is a property of the bean
+		- if firstThing is a map then secondThing is a key of the map
+		- if firstThing is a List then secondThing is an index into the List
 
 11. Explain how servlets and JSPs use request dispatch to interact.
-
+- From JSP page: can invoke a servlet from a JSP page through the jsp:include and jsp:forward action tags
+    Example:
+	< jsp:include page="/servlet/AServlet" flush="true" />
+        < jsp:forward page="/servlet/AServlet" />
+ 
+- From Servlet: through functionality of the standard javax.servlet.RequestDispatcher interface
+    Example:
+	RequestDispatcher rd = sc.getRequestDispatcher("/jsp/mypage.jsp");
+	rd.include(request, response);
+	or:
+        rd.forward(request, response);
+    

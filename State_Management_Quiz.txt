@@ -59,3 +59,4 @@ State Management Quiz
 	- To exchange sessionID
 
 12.  Why does the request attribute report ‘null’ for the maintaining state demo?
+	- Null is returned if no attribute of the given name exist.
