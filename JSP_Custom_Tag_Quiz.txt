@@ -31,7 +31,7 @@ JSP Custom Tags Quiz
 	- The uri attribute value resolves to a location the container understands and the prefix attribute informs a container what bits of markup are custom actions
 
 4. What is a tag handler class? 
-	- Handler class that implements the tag functionality.
+	- Handler class implements the tag functionality.
 
 5. What is the role of attribute setters in a tag handler class?  
 	- To set value for each attribute of custom tag.
@@ -40,7 +40,7 @@ JSP Custom Tags Quiz
 	- Render custom tag.
 
 7. What does the operation getJspContext().getOut().write(“Hi Bob”) do when called in a doTag() method?  
-	- Print out the value of customtag attributes.
+	- Write out content “Hi Bob” to JSP
 
 8. What does the operation getJspBody().invoke(null) do when called in a doTag() method?
 	- When getJspBody().invoke(null) is called, it is the output resulting from the execution of the tag body's JSP content that gets passed to the client, not the JSP code itself.
