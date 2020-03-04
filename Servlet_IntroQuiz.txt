@@ -1,0 +1,35 @@
+Introduction to Servlets Quiz
+ 
+1. What is the difference between a web server and a web container? 
+	- A web container is an area of a web server where it can run and maintain Java Servlets and JSPs (which are like servlets)
+	- Most commercial web applications use the Apache web server (proven architecture and free license), it does not have a web container.
+	- Tomcat is a Java web server with a web container. For production environments it may lack features like load-balancing, redundancy, etc.
+	- Tomcat is not a full JEE application server (just a wrapper around the Catalina web container).
+	- A J2EE server includes Servlet specs, JSP specs and EJB specs, (and more).
+	- Glassfish is a JEE application server. It contains Tomcat (Catalina) plus all the other needed things for a JEE server, will only start what’s needed.
+
+2. What is a servlet? 
+	- A servlet is server-side java code that can handle http requests and return dynamic content.
+	- Servlets are managed by a servlet engine or container. Each request that comes in results in the spawning of a new thread that runs a servlet (eliminating the cost of creating a new process every time).
+
+3. How do web servers and web containers interact with servlets? 
+	- Web servers received request from client, communicate with servlets in web container base on web.xml or annotation, sends the response back to the client.
+	- Web container locates the servlet, creates request and response objects and passes them to the servlet, and returns to the web server the response stream that the servlet produces.
+
+4. Who creates request objects? 
+	- Web container.
+
+5. What are the states in the servlet lifecycle?
+	- Load, Create, Init, Service, Destroy.
+
+6. Who calls init and when?
+	- Servlet container call init when it create servlet instance for the requests.
+
+7. Which of init, service, and doGet should you override?
+	- doGet
+
+8. In what sense are servlets multi-threaded? 
+	- There are many request to one servlet, the contatiner will create thread for each request on one servlet.
+
+9. What are the implications of this for servlet instance variables?
+	- All threads share instance variables

@@ -1,0 +1,40 @@
+JSP Introduction Quiz
+ 
+1. What is the main value of Java Server Pages?  
+Separate display from processing, i.e., separate html from java.
+
+2. How are JSP pages related to servlets? 
+The web container generates a servlet from a JSP file the first time the JSP is requested from a web application.
+
+3. How are JSP pages related to HTML?  
+Jsp is html with a little java mixed in.
+
+4. Give an example of a JSP scriptlet and show how it will look in the JSP servlet.
+<html>  
+<body>  
+<% out.print("welcome to jsp"); %>  
+</body>  
+</html> 
+
+5. Give an example of a JSP declaration and show how it will look in the JSP servlet. 
+<%! int count = 0; %>
+
+6. Give an example of a JSP comment and show how it will look in the JSP servlet.  
+<%-- jsp comment  --%>
+
+7. Give an example of a JSP expression and show how it will look in the JSP servlet.  
+<%= Java expression %>
+8. Give an example of a JSP directive and show how it will look in the JSP servlet.  
+<%@ page   %>
+
+9. Explain how an EL expression is evaluated. 
+	- More convenient and powerful than a JSP expression ${  } vs <%=  %>
+
+10. Explain how servlet attributes are involved in EL expressions. 
+JSP expression: 
+	<%=((Person) request.getAttribute(“person”)).getDog().getName() %>
+EL simplifies JSP expression syntax 
+	${person.dog.name} 
+
+11. Explain how servlets and JSPs use request dispatch to interact.
+

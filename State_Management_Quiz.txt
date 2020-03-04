@@ -1,0 +1,61 @@
+State Management Quiz
+ 
+1. Can post requests be bookmarked? What are the problems? 
+	- No, i can not. In the POST method the data is passed in the HTTP request body so it can't be book marked.
+
+2. What is the purpose of request dispatching? 
+	-The request dispatching dispatch the request to another resource it may be html, servlet or jsp.
+	- It is one of the way of servlet collaboration.
+
+3. What is the difference between redirect and request dispatch? 
+	- The the request dispatching dispatch the request to another resource it may be html, servlet or jsp. It is one of the way of servlet collaboration.
+
+4. What is an attribute ?
+	- An object bound into one of the three servlet API objects 
+		HttpServletRequest 
+		HttpSession 
+		ServletContext
+	- Is a name value pair:
+		value has type Object  
+		name is String
+
+5. What is the difference between attributes and parameters?
+	- Send data from your HTML page to the servlet
+
+6. What are dangers of using attributes? 
+	- Context attribute and session attribute are not thread-safe.
+
+7. What does it mean to say that HTTP is stateless? Give an example of a stateful protocol. 
+	- HTTP protocol is stateless; it does not remember any data that was sent or received in previous conversations. 
+	- A statefull protocol: FTP (File Transfer Protocol).
+
+8. Give 5 different methods for maintaining state information (count each attribute scope as one method). 
+	- 5 ways to maintain state Container managed state (3 scopes) 
+		1) request scope: destroyed when servlet finishes processing  request 
+		2) session scope: destroyed when user closes browser 
+		3) application scope destroyed when the container stopped. 
+		4) Cookies saved on browser, either temporary (deleted when the browser closes) or permanent 
+		5) Hidden fields on a form
+
+9.  How long does a session last? 
+- Client side
+	i.Browser discards all “temporary” cookies when it closes
+	ii.Every tab or window of browser will have access to all cookies.
+
+-	3 ways for container to remove sessions
+	i.session timeout in the DD
+	ii.session.setMaxInactiveInterval(30*60); //seconds
+	iii.session.invalidate(); //remove immediate
+
+10.  What is a cookie, and how long does a cookie last? 
+-	A cookie is a small piece of information that is persisted between the multiple client requests.
+-	A cookie has a name, a single value, and optional attributes such as a comment, path and domain qualifiers, a maximum age, and a version number.
+-	Cookie can be used for other things besides implementing sessions.
+-	All cookies from a given website will be returned whenever the browser sends any request to that website.
+-	Temporary cookie: browser removes when it closes, this is default.
+-	Permanent cookie: a cookie that has a max age set.
+
+11.  What is the purpose of URL rewriting? 
+	- To exchange sessionID
+
+12.  Why does the request attribute report ‘null’ for the maintaining state demo?
