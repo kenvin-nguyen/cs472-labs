@@ -1,0 +1,33 @@
+Javascript Exercises
+ 
+1. What is the difference between the following 2 statements? 
+	setTimeout(booyah, 2000); // => do not execute function booyah after 2 seconds because missing execute expression – parent these - ()
+	setTimeout(booyah(), 2000); // => execute function booyah() after 2 seconds
+
+2. What do the following 2 alerts display (answer without running the code)? 
+ 
+	var myfunc = function(a, x) {   
+		return a * x; 
+	}; 
+	var x = myfunc(2, 3); 
+	var y = myfunc; 
+	alert(x); // display 6
+	alert(y(2,3)); // display 6
+ 
+3.  Write functions booyah1 and booyah2 so that in both cases below, an alert box comes up after 2 seconds that says “BOOYAH!” 
+	• setTimeout(booyah1, 2000); 
+	• setTimeout(booyah2(), 2000); 
+
+ 	function booyah1(){
+		return alert("BOOYAH!");
+	}
+
+	function booyah2(){
+		alert("BOOYAH!");
+	}
+ 
+4.  What is "Unobtrusive Javascript"? What is the practical application of Unobtrusive Javascript (and the reasons for using it)? 
+	• HTML with minimal JavaScript inside 
+	• Uses the DOM to attach and execute all JavaScript functions
+	• The practice allication of Unobstrusive is it should separate content, presentation, and behavior that similarly the Model-View-Controller design. This help easy to read, testable and maintainable.
+
