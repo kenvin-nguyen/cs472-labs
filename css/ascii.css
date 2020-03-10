@@ -33,3 +33,8 @@ textarea{
 	margin-left: auto;
 	margin-right: auto;
 }
+
+.validate-code{
+	width: fit-content;
+    float: right;
+}
