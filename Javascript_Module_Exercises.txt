@@ -1,0 +1,45 @@
+Javascript Module Exercises
+
+1.  Determine what this Javascript code will print out (without running it): 
+	x = 1;  var a = 5;   var b = 10;  
+	var c = function(a, b, c) {    
+		document.write(x);    // => 10
+		document.write(a);    // => 
+		var f = function(a, b, c) {
+			b = a;       
+			document.write(b);   // => 8
+ 			b = c;       
+			var x = 5;     
+		}    
+		f(a,b,c);    
+		document.write(b);   // => 9
+		var x = 10;     
+	} 
+	c(8,9,10); 
+	document.write(b); // => 10
+	document.write(x);  // => 1
+
+2.  Define Global Scope and Local Scope in Javascript. 
+	- Global scope is global environment for functions, vars, etc. 
+	- Local Scope is scope inside the function including nested variables, objects, methods, etc.
+ 
+3.   Consider the following structure of Javascript code: 
+ 
+	// Scope A  
+	function XFunc () {   
+		// Scope B   
+		function YFunc () {    
+			// Scope C   
+		};  
+	}; 
+ 
+(a) Do statements in Scope A have access to variables defined in Scope B and C? 
+	=> No
+(b) Do statements in Scope B have access to variables defined in Scope A? 
+	=> Yes
+(c) Do statements in Scope B have access to variables defined in Scope C? 
+	=> No
+(d) Do statements in Scope C have access to variables defined in Scope A? 
+	=> Yes
+(e) Do statements in Scope C have access to variables defined in Scope B? 
+ 	=> Yes.

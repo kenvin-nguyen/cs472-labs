@@ -19,11 +19,12 @@ Javascript Scope Exercises
 	document.write(x);   // => 1 
  
 2.  What is the difference between a method and function? 
- 	- Method: is functions as properties of an object.
-	- Function: First-class functions
-		-	Functions can be assigned to variables.
-		-	Functions can be passed as parameters
-		-	Functions can be return values
+ 	- Method: is a function of a local object.
+	- Function: First-class functions(global)
+		- Functions can be assigned to variables.
+		- Functions can be passed as parameters
+		- Functions can be return values
+
 
 3.  What does 'this' refer to when used in a Java method? 
  	“This” in Java refer to instance of the current object which newly created by invoke constructor method.
