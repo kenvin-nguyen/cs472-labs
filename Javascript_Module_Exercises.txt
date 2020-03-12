@@ -3,8 +3,8 @@ Javascript Module Exercises
 1.  Determine what this Javascript code will print out (without running it): 
 	x = 1;  var a = 5;   var b = 10;  
 	var c = function(a, b, c) {    
-		document.write(x);    // => 10
-		document.write(a);    // => 
+		document.write(x);    // => undefined
+		document.write(a);    // => 8
 		var f = function(a, b, c) {
 			b = a;       
 			document.write(b);   // => 8
