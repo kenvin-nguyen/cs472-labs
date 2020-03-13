@@ -1,16 +1,10 @@
 $(document).ready(function(){
 	let isWin = true;
-	/*$("#maze .boundary").hover(
-		function(){
-			$(this).addClass("youlose");
-		},
-		function(){
-			$(this).removeClass("youlose");
-		}
-	);*/
+	let isStart = false;
 	
 	$("#start").click(function(){
 		isWin = true;
+		isStart = true;
 		$("#status").text('Click the "S" to begin.');
 		$(".boundary").each(function(){
 			$(this).removeClass("youlose");
@@ -26,15 +20,29 @@ $(document).ready(function(){
 	});
 	
 	$("#end").mouseover(function(){
-		//alert("End");
-		if(isWin){
-			$("#status").text('You win!');
-			$("#maze .boundary").each(function(){
-				$(this).unbind('mouseover');
-			});
+		if(isStart){
+			if(isWin){
+				$("#status").text('You win!');
+				$("#maze .boundary").each(function(){
+					$(this).unbind('mouseover');
+				});
+			}
+			else{
+				$("#status").text("You lost. :[");
+			}
 		}
-		else{
-			$("#status").text("You lose!");
-		}
+		isStart = false;
 	});
+	
+	$("body, div#maze, div#maze div").mouseover(function(e){
+        if (isStart) {
+            if (this.className != "boundary" && this.id != "maze" && this.nodeName != "DIV") {
+                //avoid cheating
+                isStart = false;
+                $("#status").text("You lost. :[");
+                $(".boundary").addClass("youlose");
+            }
+        }
+        e.stopPropagation();
+    })
 });
