@@ -6,7 +6,7 @@ $(document).ready(function(){
 		//isWin = true;
 		if(!isStart){
 			isStart = true;
-			$('.boundary').removeClass('youlose');
+			$('#maze > div.boundary').removeClass('youlose');
 			$("#status").text('Started');
 		}
 	});
@@ -24,9 +24,9 @@ $(document).ready(function(){
 		isStart = false;
 	});
 	
-	$('.boundary').mouseover(function(){
+	$('#maze > div.boundary').mouseover(function(){
 		if(isStart){
-			$('.boundary').addClass('youlose');
+			$('#maze > div.boundary').addClass('youlose');
 			isWin = false;
 		}
 	});
@@ -34,9 +34,9 @@ $(document).ready(function(){
 	$("body, div#maze, div#maze div").mouseover(function(e){
         if (isStart) {
             if (this.className != "boundary" && this.id != "maze" && this.nodeName != "DIV") {
-                //if cheating
+                //disable cheating
                 $("#status").text("You lost. :[");
-                $(".boundary").addClass("youlose");
+                $("#maze > div.boundary").addClass("youlose");
 				isStart = false;
             }
         }
