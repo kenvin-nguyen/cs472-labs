@@ -20,9 +20,8 @@ jQuery Quiz III
  
 <!—INSERT YOUR JQUERY CODE HERE  - - > 
 $(function () {
-    let text1 = $("p:first-child").text();
-    alert(text);
-    $('p:last-child').text(text1);
+    let text = $("p:first-child").text();
+    $('p:nth-child').text(text);
 });
 </script> 
 </body> 
