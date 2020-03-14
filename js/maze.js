@@ -3,29 +3,19 @@ $(document).ready(function(){
 	let isStart = false;
 	
 	$("#start").click(function(){
-		isWin = true;
-		isStart = true;
-		$("#status").text('Click the "S" to begin.');
-		$(".boundary").each(function(){
-			$(this).removeClass("youlose");
-		});
-		
-		$(".boundary").mouseover(function(){
-				$("#maze .boundary").each(function(){
-					$(this).addClass("youlose");
-					isWin = false;
-				});
-			}
-		);
+		//isWin = true;
+		if(!isStart){
+			isStart = true;
+			$('.boundary').removeClass('youlose');
+			$("#status").text('Started');
+		}
 	});
 	
 	$("#end").mouseover(function(){
 		if(isStart){
 			if(isWin){
 				$("#status").text('You win!');
-				$("#maze .boundary").each(function(){
-					$(this).unbind('mouseover');
-				});
+				
 			}
 			else{
 				$("#status").text("You lost. :[");
@@ -34,13 +24,20 @@ $(document).ready(function(){
 		isStart = false;
 	});
 	
+	$('.boundary').mouseover(function(){
+		if(isStart){
+			$('.boundary').addClass('youlose');
+			isWin = false;
+		}
+	});
+	
 	$("body, div#maze, div#maze div").mouseover(function(e){
         if (isStart) {
             if (this.className != "boundary" && this.id != "maze" && this.nodeName != "DIV") {
-                //avoid cheating
-                isStart = false;
+                //if cheating
                 $("#status").text("You lost. :[");
                 $(".boundary").addClass("youlose");
+				isStart = false;
             }
         }
         e.stopPropagation();

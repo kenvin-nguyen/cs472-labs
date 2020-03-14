@@ -19,7 +19,7 @@ Sample HTML:
 -Solution:
 	$(document).ready(function() {
 		$( "div > h1").css("background-color","red");
-	)};
+	});
 
 3. Use a jQuery method to insert the text "YES!" at the end of the <p> element. 
 
